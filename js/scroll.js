@@ -7,22 +7,6 @@ function scrolls(scrollPoints, links){
 
 	}
 
-	// if(document.body.scrollTop >= scrollPoints[1].offsetTop && document.body.scrollTop <= scrollPoints[1].offsetTop + scrollPoints[1].offsetHeight){
-	// 	links[1].style.color = "#f0f";
-	// }else if(document.body.scrollTop <= scrollPoints[1].offsetTop){
-
-	// 	links[1].style.color = "#fff";
-	// }
-
-	// if(document.body.scrollTop >= scrollPoints[2].offsetTop && document.body.scrollTop <= scrollPoints[2].offsetTop + scrollPoints[2].offsetHeight){
-	// 	links[2].style.color = "#f0f";
-	// 	links[1].style.color = "#fff";
-	// }
-
-	// if(0 in scrollPoints){
-	// 	console.log("s");
-	// }
-
 	for(var i = 0; i < scrollPoints.length; i++){
 
 
@@ -37,8 +21,6 @@ function scrolls(scrollPoints, links){
 		}
 
 	}
-
-	// if(document.body.scrollTop >= scrollPoints)
 
 }
 
