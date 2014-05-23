@@ -1,34 +1,58 @@
-function scrolls(scrollPoints, links){
+var myScroll, scrolls;
 
-	for(var points = 0; points < scrollPoints.length; points++){
+(function(){
 
-		scrollPoints[points] = document.getElementById(scrollPoints[points]);
-		links[points] = document.getElementById(links[points]);
+    myScroll = scrolls = function(points, sect){
 
-	}
+        return new MyScroll(points, sect);
 
-	for(var i = 0; i < scrollPoints.length; i++){
+    };
 
+    var MyScroll = function(points, sect){
 
-		if(document.body.scrollTop < scrollPoints[i].offsetTop || document.body.scrollTop > (scrollPoints[i].offsetTop + scrollPoints[i].offsetHeight)){
+    	for(var p = 0; p < points.length; p++){
 
-			links[i].style.color = "#fff";
-
-		}else if(document.body.scrollTop >= scrollPoints[i].offsetTop && document.body.scrollTop <= (scrollPoints[i].offsetTop + scrollPoints[i].offsetHeight)){
-
-			links[i].style.color = "#f0f";
+				points[p] = document.getElementById(points[p]);
+				sect[p] = document.getElementById(sect[p]);
 
 		}
 
-	}
+		this.scrollPoints = points;
+		this.links = sect;
 
-}
+
+        return this;
+    };
+
+    myScroll.fn = MyScroll.prototype = {
+
+        a: function(){
+        	var scrollPoints = this.scrollPoints;
+        	var links = this.links;
+
+			document.addEventListener("scroll", function(){
+			            
+	            for(var i = 0; i < scrollPoints.length; i++){
 
 
-document.addEventListener("scroll", function(){
+	                if(document.body.scrollTop < scrollPoints[i].offsetTop || document.body.scrollTop > (scrollPoints[i].offsetTop + scrollPoints[i].offsetHeight)){
 
-	var scrollPoints = ["section1", "section2", "section3", "section4"];
-	var links = ["link1", "link2", "link3", "link4"];
-	scrolls(scrollPoints, links);
+	                    links[i].style.color = "#fff";
 
-});
+	                }else if(document.body.scrollTop >= scrollPoints[i].offsetTop && document.body.scrollTop <= (scrollPoints[i].offsetTop + scrollPoints[i].offsetHeight)){
+
+	                    links[i].style.color = "#f0f";
+
+	                }
+
+	            }
+
+	            return this;
+
+	        });
+
+        }
+        
+    };
+
+}());
