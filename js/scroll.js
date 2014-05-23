@@ -30,7 +30,7 @@ var myScroll, scrolls;
         	var scrollPoints = this.scrollPoints;
         	var links = this.links;
 
-			document.addEventListener("scroll", function(){
+		document.addEventListener("scroll", function(){
 			            
 	            for(var i = 0; i < scrollPoints.length; i++){
 
